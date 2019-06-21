@@ -76,6 +76,7 @@ public class AuthorizeController {
             user.setAccountId(String.valueOf(githubUser.getId()));
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
+            user.setAvatarUrl(githubUser.getAvatarUrl());
             userMapper.inster(user);
             //TODO 这里是为什么将token传到response中，为什么IndexController 的 index 方法参数却是 HttpServletRequest？
             response.addCookie(new Cookie("token", token));
